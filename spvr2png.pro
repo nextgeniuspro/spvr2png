@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QMAKE_CFLAGS += -std=c11
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 

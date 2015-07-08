@@ -14,7 +14,7 @@
 #include <math.h>
 
 // Twiddle
-static const unsigned int kTwiddleTableSize = 1024;
+#define kTwiddleTableSize 1024
 unsigned long int gTwiddledTable[kTwiddleTableSize];
 
 unsigned long int           GetUntwiddledTexelPosition(unsigned long int x, unsigned long int y);
