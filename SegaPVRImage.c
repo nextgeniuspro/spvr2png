@@ -50,7 +50,7 @@ int LoadPVRFromFile(const char* filename, unsigned char** image, unsigned long i
     
     struct PVRTHeader pvrtHeader;
     unsigned int offset = ReadPVRHeader(srcPtr, &pvrtHeader);
-    if (offset == -1u)
+    if (offset == 0)
     {
         free(buff);
         return 0;
@@ -78,7 +78,7 @@ int LoadPVRFromFile(const char* filename, unsigned char** image, unsigned long i
 
 unsigned int ReadPVRHeader(unsigned char* srcData, struct PVRTHeader* pvrtHeader)
 {
-    unsigned int offset = -1;
+    unsigned int offset = 0;
     struct GBIXHeader gbixHeader;
     if (strncmp((char*)srcData, "GBIX", 4) == 0)
     {
@@ -86,7 +86,7 @@ unsigned int ReadPVRHeader(unsigned char* srcData, struct PVRTHeader* pvrtHeader
         offset += sizeof(struct GBIXHeader);
     }
     
-    if (strncmp((char*)srcData, "PVRT", 4) == 0)
+    if (strncmp((char*)srcData + offset, "PVRT", 4) == 0)
     {
         memcpy(pvrtHeader, srcData + offset, sizeof(struct PVRTHeader));
         offset += sizeof(struct PVRTHeader);
