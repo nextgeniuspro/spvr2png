@@ -28,7 +28,7 @@ MainWindow::~MainWindow()
 void MainWindow::OnOpenFile()
 {
     QFileDialog dialog(this);
-    dialog.setNameFilter(tr("Sega PVR images (*.pvr)"));
+    dialog.setNameFilter(tr("Sega PVR images (*.pvr *.PVR)"));
     dialog.setFileMode(QFileDialog::ExistingFiles);
     if (dialog.exec())
     {
