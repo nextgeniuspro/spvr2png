@@ -28,7 +28,7 @@ Where:
 
 ## Building
 
-This project uses CMake. To build:
+Use next commands to build project:
 
 ```
 make all
